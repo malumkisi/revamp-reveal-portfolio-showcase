@@ -29,15 +29,13 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
     console.log('Form submitted:', formData);
     
     toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. I'll get back to you within 24 hours.",
+      title: "Mesaj Gönderildi!",
+      description: "Sorgunuz için teşekkürler. 24 saat içinde size geri döneceğim.",
     });
 
-    // Reset form
     setFormData({
       name: '',
       email: '',
@@ -49,88 +47,88 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-gray-900 dark:to-blue-950/20 relative z-10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">İletişim</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your website? Let's discuss your project and how I can help your business succeed online.
+            Web sitenizi dönüştürmeye hazır mısınız? Projenizi ve işinizin online başarısı için nasıl yardımcı olabileceğimi konuşalım.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-6">
-            <Card>
+            <Card className="bg-card border-border shadow-lg">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+                <h3 className="text-xl font-semibold mb-6 text-foreground">İletişim Bilgileri</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-blue-600" />
+                    <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     <div>
-                      <div className="font-medium">Email</div>
-                      <div className="text-sm text-muted-foreground">hello@devportfolio.com</div>
+                      <div className="font-medium text-foreground">E-posta</div>
+                      <div className="text-sm text-muted-foreground">merhaba@gelistiriciportfoy.com</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-blue-600" />
+                    <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     <div>
-                      <div className="font-medium">Phone</div>
-                      <div className="text-sm text-muted-foreground">(555) 123-4567</div>
+                      <div className="font-medium text-foreground">Telefon</div>
+                      <div className="text-sm text-muted-foreground">(0555) 123-4567</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <MapPin className="w-5 h-5 text-blue-600" />
+                    <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     <div>
-                      <div className="font-medium">Location</div>
-                      <div className="text-sm text-muted-foreground">Available nationwide (Remote)</div>
+                      <div className="font-medium text-foreground">Konum</div>
+                      <div className="text-sm text-muted-foreground">Uzaktan (Türkiye Geneli)</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Clock className="w-5 h-5 text-blue-600" />
+                    <Clock className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     <div>
-                      <div className="font-medium">Response Time</div>
-                      <div className="text-sm text-muted-foreground">Within 24 hours</div>
+                      <div className="font-medium text-foreground">Yanıt Süresi</div>
+                      <div className="text-sm text-muted-foreground">24 saat içinde</div>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-blue-50 border-blue-200">
+            <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
               <CardContent className="p-6">
-                <h4 className="font-semibold mb-3 text-blue-900">Free Consultation</h4>
-                <p className="text-sm text-blue-800 mb-4">
-                  Not sure what you need? I offer a free 30-minute consultation to discuss your website goals and provide recommendations.
+                <h4 className="font-semibold mb-3 text-blue-900 dark:text-blue-300">Ücretsiz Danışmanlık</h4>
+                <p className="text-sm text-blue-800 dark:text-blue-200 mb-4">
+                  Neye ihtiyacınız olduğundan emin değil misiniz? Web sitesi hedeflerinizi tartışmak ve öneriler sunmak için 30 dakikalık ücretsiz danışmanlık sunuyorum.
                 </p>
-                <Button variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-100 w-full">
-                  Schedule Free Call
+                <Button variant="outline" className="border-blue-300 dark:border-blue-600 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 w-full">
+                  Ücretsiz Görüşme Planla
                 </Button>
               </CardContent>
             </Card>
           </div>
 
           {/* Contact Form */}
-          <Card className="lg:col-span-2">
+          <Card className="lg:col-span-2 bg-card border-border shadow-lg">
             <CardHeader>
-              <CardTitle>Tell Me About Your Project</CardTitle>
+              <CardTitle className="text-foreground">Projeniz Hakkında Bilgi Verin</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name">Name *</Label>
+                    <Label htmlFor="name" className="text-foreground">Ad Soyad *</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="mt-1"
+                      className="mt-1 bg-background border-border text-foreground"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="email">Email *</Label>
+                    <Label htmlFor="email" className="text-foreground">E-posta *</Label>
                     <Input
                       id="email"
                       name="email"
@@ -138,59 +136,59 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="mt-1"
+                      className="mt-1 bg-background border-border text-foreground"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone" className="text-foreground">Telefon</Label>
                     <Input
                       id="phone"
                       name="phone"
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="mt-1"
+                      className="mt-1 bg-background border-border text-foreground"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="website">Current Website (if any)</Label>
+                    <Label htmlFor="website" className="text-foreground">Mevcut Web Siteniz (varsa)</Label>
                     <Input
                       id="website"
                       name="website"
                       type="url"
                       value={formData.website}
                       onChange={handleInputChange}
-                      placeholder="https://yourwebsite.com"
-                      className="mt-1"
+                      placeholder="https://websiteniz.com"
+                      className="mt-1 bg-background border-border text-foreground"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="projectType">Project Type *</Label>
+                  <Label htmlFor="projectType" className="text-foreground">Proje Türü *</Label>
                   <select
                     id="projectType"
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleInputChange}
                     required
-                    className="mt-1 w-full px-3 py-2 border border-input bg-background rounded-md text-sm ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                    className="mt-1 w-full px-3 py-2 border border-border bg-background rounded-md text-sm ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground"
                   >
-                    <option value="">Select project type</option>
-                    <option value="redesign">Website Redesign</option>
-                    <option value="new">New Website</option>
-                    <option value="mobile">Mobile Optimization</option>
-                    <option value="maintenance">Website Maintenance</option>
-                    <option value="consultation">Consultation Only</option>
-                    <option value="other">Other</option>
+                    <option value="">Proje türü seçin</option>
+                    <option value="redesign">Web Sitesi Yeniden Tasarım</option>
+                    <option value="new">Yeni Web Sitesi</option>
+                    <option value="mobile">Mobil Optimizasyon</option>
+                    <option value="maintenance">Web Sitesi Bakımı</option>
+                    <option value="consultation">Sadece Danışmanlık</option>
+                    <option value="other">Diğer</option>
                   </select>
                 </div>
 
                 <div>
-                  <Label htmlFor="message">Project Details *</Label>
+                  <Label htmlFor="message" className="text-foreground">Proje Detayları *</Label>
                   <Textarea
                     id="message"
                     name="message"
@@ -198,13 +196,13 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    placeholder="Tell me about your business, current website challenges, goals, timeline, and budget range..."
-                    className="mt-1"
+                    placeholder="İşiniz, mevcut web sitesi zorlukları, hedefler, zaman çizelgesi ve bütçe aralığı hakkında bilgi verin..."
+                    className="mt-1 bg-background border-border text-foreground"
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3">
-                  Send Message
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white py-3">
+                  Mesaj Gönder
                 </Button>
               </form>
             </CardContent>

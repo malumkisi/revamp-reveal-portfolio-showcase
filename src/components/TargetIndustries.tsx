@@ -16,81 +16,81 @@ const TargetIndustries = () => {
   const industries = [
     {
       icon: UtensilsCrossed,
-      title: "Restaurants & Food Services",
-      description: "Menu showcases, online ordering, reservation systems, and appetizing food photography displays.",
-      examples: ["Fine dining restaurants", "Cafes & coffee shops", "Food trucks", "Catering services"]
+      title: "Restoranlar ve Yemek Hizmetleri",
+      description: "Menü vitrinleri, online sipariş, rezervasyon sistemleri ve iştah açıcı yemek fotoğrafı sergileri.",
+      examples: ["Fine dining restoranları", "Kafeler ve kahve dükkanları", "Yemek kamyonları", "Catering hizmetleri"]
     },
     {
       icon: Scale,
-      title: "Law Firms & Legal Services",
-      description: "Professional, trustworthy designs that build credibility and make legal services accessible.",
-      examples: ["Personal injury lawyers", "Family law practices", "Business attorneys", "Legal consultants"]
+      title: "Hukuk Büroları ve Hukuki Hizmetler",
+      description: "Güvenilirlik oluşturan ve hukuki hizmetleri erişilebilir kılan profesyonel, güvenilir tasarımlar.",
+      examples: ["Kişisel yaralanma avukatları", "Aile hukuku uygulamaları", "İş avukatları", "Hukuki danışmanlar"]
     },
     {
       icon: Wrench,
-      title: "Home Services",
-      description: "Service-focused websites that generate leads and showcase expertise in home improvement.",
-      examples: ["Plumbing services", "Electrical contractors", "HVAC companies", "General contractors"]
+      title: "Ev Hizmetleri",
+      description: "Potansiyel müşteri oluşturan ve ev geliştirme konusundaki uzmanlığı sergileyen hizmet odaklı web siteleri.",
+      examples: ["Tesisatçılık hizmetleri", "Elektrik müteahhitleri", "HVAC şirketleri", "Genel müteahhitler"]
     },
     {
       icon: Scissors,
-      title: "Beauty & Personal Care",
-      description: "Stylish, visual websites that highlight services and make booking appointments easy.",
-      examples: ["Hair salons", "Barbershops", "Nail salons", "Spa services"]
+      title: "Güzellik ve Kişisel Bakım",
+      description: "Hizmetleri vurgulayan ve randevu almayı kolaylaştıran şık, görsel web siteleri.",
+      examples: ["Kuaförler", "Berber dükkanları", "Nail salonları", "Spa hizmetleri"]
     },
     {
       icon: Heart,
-      title: "Medical & Healthcare",
-      description: "Clean, professional designs that prioritize patient trust and easy appointment scheduling.",
-      examples: ["Dental practices", "Medical clinics", "Physical therapy", "Chiropractic offices"]
+      title: "Tıp ve Sağlık",
+      description: "Hasta güvenini önceleyeyen ve kolay randevu planlamaya odaklanan temiz, profesyonel tasarımlar.",
+      examples: ["Diş hekimliği uygulamaları", "Tıp klinikleri", "Fizyoterapi", "Kiropraktik ofisleri"]
     },
     {
       icon: Building2,
-      title: "Professional Services",
-      description: "Business-focused websites that establish authority and generate qualified leads.",
-      examples: ["Accounting firms", "Insurance agencies", "Real estate agents", "Consulting services"]
+      title: "Profesyonel Hizmetler",
+      description: "Otorite kuran ve nitelikli potansiyel müşteriler oluşturan işe odaklı web siteleri.",
+      examples: ["Muhasebe firmaları", "Sigorta acenteleri", "Emlak acenteleri", "Danışmanlık hizmetleri"]
     },
     {
       icon: Car,
-      title: "Automotive Services",
-      description: "Trust-building websites for automotive professionals with service showcases and easy contact.",
-      examples: ["Auto repair shops", "Car dealerships", "Detailing services", "Tire shops"]
+      title: "Otomotiv Hizmetleri",
+      description: "Hizmet vitrinleri ve kolay iletişim ile otomotiv profesyonelleri için güven oluşturan web siteleri.",
+      examples: ["Oto tamir dükkanları", "Araba galerileri", "Detaylandırma hizmetleri", "Lastik dükkanları"]
     },
     {
       icon: Home,
-      title: "Local Service Businesses",
-      description: "Community-focused websites that highlight local expertise and build neighborhood trust.",
-      examples: ["Cleaning services", "Landscaping", "Pet services", "Moving companies"]
+      title: "Yerel Hizmet İşletmeleri",
+      description: "Yerel uzmanlığı vurgulayan ve mahalle güveni oluşturan toplum odaklı web siteleri.",
+      examples: ["Temizlik hizmetleri", "Peyzaj düzenleme", "Evcil hayvan hizmetleri", "Nakliye şirketleri"]
     }
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900/50 relative z-10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Industries I Specialize In</h2>
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Uzmanlaştığım Sektörler</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            I focus on creating websites for small businesses and service providers who need 
-            professional online presence to attract and convert local customers
+            Yerel müşterileri çekmek ve dönüştürmek için profesyonel online varlığa ihtiyaç duyan 
+            küçük işletmeler ve hizmet sağlayıcıları için web siteleri oluşturmaya odaklanıyorum
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border">
               <CardContent className="p-6 text-center">
-                <div className="mb-4 mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                  <industry.icon className="w-8 h-8 text-blue-600" />
+                <div className="mb-4 mx-auto w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors">
+                  <industry.icon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold mb-3">{industry.title}</h3>
+                <h3 className="text-lg font-semibold mb-3 text-foreground">{industry.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {industry.description}
                 </p>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs text-muted-foreground">
                   <div className="space-y-1">
                     {industry.examples.map((example, exampleIndex) => (
                       <div key={exampleIndex} className="flex items-center justify-start">
-                        <div className="w-1 h-1 bg-blue-600 rounded-full mr-2"></div>
+                        <div className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full mr-2"></div>
                         <span>{example}</span>
                       </div>
                     ))}
@@ -101,15 +101,15 @@ const TargetIndustries = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-blue-50 rounded-lg p-8 max-w-4xl mx-auto border-l-4 border-blue-500">
-            <h3 className="text-xl font-semibold mb-4 text-gray-900">
-              Don't See Your Industry? Let's Talk!
+        <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="bg-blue-50 dark:bg-blue-950/20 rounded-lg p-8 max-w-4xl mx-auto border-l-4 border-blue-500">
+            <h3 className="text-xl font-semibold mb-4 text-foreground">
+              Sektörünüzü Görmüyor musunuz? Konuşalım!
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              While these are my main focus areas, I work with various types of small businesses and service providers. 
-              If you have a business that needs a professional website to attract customers and build credibility, 
-              I'd love to discuss how I can help transform your online presence.
+              Bunlar ana odak alanlarım olsa da, çeşitli türlerde küçük işletmeler ve hizmet sağlayıcılarıyla çalışıyorum. 
+              Müşterileri çekmek ve güvenilirlik oluşturmak için profesyonel bir web sitesine ihtiyaç duyan bir işiniz varsa, 
+              online varlığınızı nasıl dönüştürebileceğimi konuşmayı çok isterim.
             </p>
           </div>
         </div>
