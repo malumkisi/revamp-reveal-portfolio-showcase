@@ -1,42 +1,58 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#services', label: 'Services' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#about', label: 'Hakkımda' },
+    { href: '#services', label: 'Hizmetler' },
+    { href: '#projects', label: 'Projeler' },
+    { href: '#skills', label: 'Yetenekler' },
+    { href: '#contact', label: 'İletişim' }
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-sm' 
+        : 'bg-background/90 backdrop-blur-md border-b border-border'
+    }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary">
+          <div className="text-2xl font-bold text-primary hover:scale-105 transition-transform duration-200">
             Dev<span className="text-blue-600">Portfolio</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                className="text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-105 relative group"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-primary"
+            className="md:hidden text-primary hover:scale-110 transition-transform duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -45,13 +61,14 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border">
+          <nav className="md:hidden mt-4 pb-4 border-t border-border animate-fade-in">
             <div className="flex flex-col space-y-2 pt-4">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200 py-2"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-gray-50 rounded px-2 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
