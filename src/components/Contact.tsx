@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -24,6 +23,15 @@ const Contact = () => {
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handlePhoneInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Sadece sayıları kabul et
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setFormData(prev => ({
+      ...prev,
+      phone: value
     }));
   };
 
@@ -149,7 +157,10 @@ const Contact = () => {
                       name="phone"
                       type="tel"
                       value={formData.phone}
-                      onChange={handleInputChange}
+                      onChange={handlePhoneInput}
+                      pattern="[0-9]*"
+                      inputMode="numeric"
+                      placeholder="05XXXXXXXXX"
                       className="mt-1 bg-background border-border text-foreground"
                     />
                   </div>
