@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -14,6 +14,12 @@ import Footer from '@/components/Footer';
 import MouseParticles from '@/components/MouseParticles';
 
 const Index = () => {
+  useEffect(() => {
+    // Site dilini Türkçe olarak ayarla
+    document.documentElement.lang = 'tr';
+    document.title = 'GeliştiriciPortföy - Web Sitesi Yeniden Tasarım Uzmanı';
+  }, []);
+
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
