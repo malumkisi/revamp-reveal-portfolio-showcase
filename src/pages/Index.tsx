@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -14,19 +15,21 @@ import MouseParticles from '@/components/MouseParticles';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <MouseParticles />
-      <Header />
-      <Hero />
-      <About />
-      <Services />
-      <FeaturedProject />
-      <Skills />
-      <TargetIndustries />
-      <Process />
-      <Contact />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+        <MouseParticles />
+        <Header />
+        <Hero />
+        <About />
+        <Services />
+        <FeaturedProject />
+        <Skills />
+        <TargetIndustries />
+        <Process />
+        <Contact />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             {navItems.map((item, index) => (
               <a
                 key={item.href}
@@ -48,15 +49,19 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
+            <ThemeToggle />
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-primary hover:scale-110 transition-transform duration-200"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button and Theme Toggle */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <button
+              className="text-primary hover:scale-110 transition-transform duration-200"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -67,7 +72,7 @@ const Header = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-gray-50 rounded px-2 animate-fade-in"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-accent rounded px-2 animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                   onClick={() => setIsMenuOpen(false)}
                 >
