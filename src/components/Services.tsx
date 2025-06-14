@@ -1,45 +1,45 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { RefreshCw, Globe, Smartphone, Code, FileText, Zap } from 'lucide-react';
+import { Globe, Smartphone, Code, FileText, Zap, Palette } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      icon: RefreshCw,
-      title: "Web Sitesi Yeniden Tasarım ve Modernleştirme",
-      description: "Eski web sitenizi ziyaretçileri etkileyen ve markanızla güven oluşturan modern, duyarlı bir tasarıma dönüştürün.",
-      features: ["Tamamen görsel yenileme", "Modern UI/UX tasarım", "Mobil optimizasyon", "Performans iyileştirmeleri"]
-    },
-    {
       icon: Globe,
       title: "Özel İş Web Siteleri",
       description: "Güçlü bir online varlığa ihtiyaç duyan küçük işletmeler ve hizmet sağlayıcıları için sıfırdan profesyonel web siteleri oluşturun.",
-      features: ["Özel tasarım ve geliştirme", "İşe odaklı düzenler", "Profesyonel markalaşma", "İletişim ve hizmet sayfaları"]
+      features: ["Sıfırdan özel tasarım", "İşe odaklı düzenler", "Profesyonel markalaşma", "İletişim ve hizmet sayfaları"]
+    },
+    {
+      icon: Palette,
+      title: "Modern UI/UX Tasarım",
+      description: "Kullanıcı deneyimini önceleyerek, markanızı en iyi şekilde yansıtan modern ve çekici arayüz tasarımları oluşturun.",
+      features: ["Kullanıcı odaklı tasarım", "Modern görsel dil", "Marka kimliği entegrasyonu", "Çekici görsel öğeler"]
     },
     {
       icon: Code,
       title: "Frontend Geliştirme",
       description: "Hem güzel hem de işlevsel web siteleri oluşturmak için temiz, semantik HTML, modern CSS ve etkileşimli JavaScript.",
-      features: ["HTML5 ve CSS3", "Duyarlı framework'ler", "Etkileşimli öğeler", "Tarayıcılar arası uyumluluk"]
+      features: ["HTML5 ve CSS3", "Modern JavaScript", "Etkileşimli öğeler", "Tarayıcılar arası uyumluluk"]
     },
     {
       icon: Smartphone,
-      title: "Mobil Optimizasyon",
-      description: "Web sitenizin akıllı telefonlarda, tabletlerde ve tüm ekran boyutlarında mükemmel görünmesini ve kusursuz çalışmasını sağlayın.",
-      features: ["Mobil öncelikli tasarım", "Dokunma dostu arayüzler", "Hızlı mobil yükleme", "Uygulama benzeri deneyim"]
+      title: "Çoklu Platform Optimizasyonu",
+      description: "Web sitenizin akıllı telefonlarda, tabletlerde, masaüstü bilgisayarlarda ve tüm ekran boyutlarında mükemmel çalışmasını sağlayın.",
+      features: ["Mobil öncelikli tasarım", "Tablet optimizasyonu", "Desktop uyumluluğu", "Tüm cihazlarda hızlı yükleme"]
     },
     {
       icon: FileText,
-      title: "Temel Backend Entegrasyonu",
-      description: "İletişim formları, temel veri işleme ve temel iş özellikleri için basit sunucu tarafı işlevsellik.",
-      features: ["İletişim formu kurulumu", "E-posta entegrasyonu", "Temel veri işleme", "Basit CMS çözümleri"]
+      title: "Backend Entegrasyonu",
+      description: "İletişim formları, temel veri işleme ve temel iş özellikleri için güvenilir sunucu tarafı işlevsellik.",
+      features: ["İletişim formu kurulumu", "E-posta entegrasyonu", "Veri işleme sistemleri", "İçerik yönetimi"]
     },
     {
       icon: Zap,
-      title: "Performans Optimizasyonu",
-      description: "Optimize edilmiş kod, sıkıştırılmış görseller ve hızlı yükleme süreleri için en iyi uygulamalarla web sitenizi hızlandırın.",
-      features: ["Sayfa hızı optimizasyonu", "Görsel sıkıştırma", "Kod küçültme", "Önbellekleme stratejileri"]
+      title: "Performans & SEO Optimizasyonu",
+      description: "Optimize edilmiş kod, sıkıştırılmış görseller ve SEO dostu yapı ile web sitenizi arama motorlarında üst sıralara taşıyın.",
+      features: ["Sayfa hızı optimizasyonu", "SEO dostu yapı", "Görsel optimizasyonu", "Arama motoru uyumluluğu"]
     }
   ];
 

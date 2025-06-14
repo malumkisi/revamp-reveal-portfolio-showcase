@@ -21,18 +21,18 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <div className="mb-6 animate-fade-in">
             <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium mb-4 hover:scale-105 transition-transform duration-300">
-              Frontend Geliştirici & Website Yeniden Tasarım Uzmanı
+              Frontend Geliştirici & Web Sitesi Uzmanı
             </span>
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-blue-600 to-foreground bg-clip-text text-transparent leading-tight animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Eski Web Sitenizi 
-            <span className="text-blue-600 dark:text-blue-400 block"> Modern Bir Başyapıta</span>
-            Dönüştürün
+            İşiniz İçin 
+            <span className="text-blue-600 dark:text-blue-400 block"> Profesyonel Web Sitesi</span>
+            Oluşturalım
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Restoranlar, hukuk büroları, hizmet şirketleri ve yerel işletmeler için iş web sitelerini yeniden tasarlama ve modernleştirme konusunda uzmanım. Online varlığınızı modern çağa taşıyalım.
+            Restoranlar, hukuk büroları, hizmet şirketleri ve yerel işletmeler için modern, kullanıcı dostu web siteleri tasarlıyor ve geliştiriyorum. İşinizi dijital dünyada güçlü bir şekilde temsil eden, müşteri kazandıran web siteleri yaratıyorum.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style={{ animationDelay: '0.6s' }}>

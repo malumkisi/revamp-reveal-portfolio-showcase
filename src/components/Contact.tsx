@@ -52,7 +52,7 @@ const Contact = () => {
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">İletişim</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Web sitenizi dönüştürmeye hazır mısınız? Projenizi ve işinizin online başarısı için nasıl yardımcı olabileceğimi konuşalım.
+            İşiniz için profesyonel bir web sitesi oluşturmaya hazır mısınız? Projenizi ve işinizin online başarısı için nasıl yardımcı olabileceğimi konuşalım.
           </p>
         </div>
 
@@ -178,12 +178,8 @@ const Contact = () => {
                     className="mt-1 w-full px-3 py-2 border border-border bg-background rounded-md text-sm ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground"
                   >
                     <option value="">Proje türü seçin</option>
-                    <option value="redesign">Web Sitesi Yeniden Tasarım</option>
                     <option value="new">Yeni Web Sitesi</option>
-                    <option value="mobile">Mobil Optimizasyon</option>
-                    <option value="maintenance">Web Sitesi Bakımı</option>
-                    <option value="consultation">Sadece Danışmanlık</option>
-                    <option value="other">Diğer</option>
+                    <option value="redesign">Web Sitesi Yeniden Tasarım</option>
                   </select>
                 </div>
 
@@ -196,7 +192,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    placeholder="İşiniz, mevcut web sitesi zorlukları, hedefler, zaman çizelgesi ve bütçe aralığı hakkında bilgi verin..."
+                    placeholder="İşiniz, hedefler, beklentiler, zaman çizelgesi ve bütçe aralığı hakkında bilgi verin..."
                     className="mt-1 bg-background border-border text-foreground"
                   />
                 </div>
