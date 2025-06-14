@@ -16,12 +16,34 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const navItems = [
-    { href: '#about', label: 'Hakkımda' },
-    { href: '#services', label: 'Hizmetler' },
-    { href: '#projects', label: 'Projeler' },
-    { href: '#skills', label: 'Yetenekler' },
-    { href: '#contact', label: 'İletişim' }
+    { href: 'about', label: 'Hakkımda' },
+    { href: 'services', label: 'Hizmetler' },
+    { href: 'projects', label: 'Projeler' },
+    { href: 'skills', label: 'Yetenekler' },
+    { href: 'contact', label: 'İletişim' }
   ];
 
   return (
@@ -32,22 +54,25 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary hover:scale-105 transition-transform duration-200">
+          <button 
+            onClick={scrollToTop}
+            className="text-2xl font-bold text-primary hover:scale-105 transition-transform duration-200 cursor-pointer"
+          >
             Geliştirici<span className="text-blue-600">Portföy</span>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
             {navItems.map((item, index) => (
-              <a
+              <button
                 key={item.href}
-                href={item.href}
-                className="text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-105 relative group"
+                onClick={() => smoothScrollTo(item.href)}
+                className="text-muted-foreground hover:text-primary transition-all duration-200 hover:scale-105 relative group cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </button>
             ))}
             <ThemeToggle />
           </nav>
@@ -69,15 +94,14 @@ const Header = () => {
           <nav className="md:hidden mt-4 pb-4 border-t border-border animate-fade-in">
             <div className="flex flex-col space-y-2 pt-4">
               {navItems.map((item, index) => (
-                <a
+                <button
                   key={item.href}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-accent rounded px-2 animate-fade-in"
+                  onClick={() => smoothScrollTo(item.href)}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 py-2 hover:bg-accent rounded px-2 animate-fade-in text-left cursor-pointer"
                   style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
             </div>
           </nav>

@@ -57,17 +57,27 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="p-6 bg-card shadow-lg animate-fade-in border-border hover:scale-105 transition-transform duration-300" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Card 
+              key={index} 
+              className="p-6 bg-card shadow-lg animate-fade-in border-border hover:scale-105 hover:shadow-xl transition-all duration-500 hover:bg-card/90 dark:hover:bg-card/90 group cursor-pointer" 
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <CardContent className="p-0">
-                <h3 className="text-xl font-semibold mb-6 text-center text-foreground">{category.title}</h3>
+                <h3 className="text-xl font-semibold mb-6 text-center text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">{category.title}</h3>
                 <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
+                    <div key={skillIndex} className="group/skill">
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                        <span className="text-sm font-medium text-foreground group-hover/skill:text-blue-600 dark:group-hover/skill:text-blue-400 transition-colors duration-300">{skill.name}</span>
+                        <span className="text-sm text-muted-foreground font-bold">{skill.level}%</span>
                       </div>
-                      <Progress value={skill.level} className="h-2" />
+                      <div className="relative">
+                        <Progress 
+                          value={skill.level} 
+                          className="h-3 bg-secondary/50 dark:bg-secondary/30 transition-all duration-500 group-hover/skill:h-4" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300"></div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -87,7 +97,7 @@ const Skills = () => {
             ].map((tech, index) => (
               <span
                 key={index}
-                className="px-4 py-2 bg-secondary/80 text-secondary-foreground rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 animate-fade-in border border-border"
+                className="px-4 py-2 bg-secondary/80 dark:bg-secondary/60 text-secondary-foreground rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-300 hover:scale-110 animate-fade-in border border-border hover:border-blue-300 dark:hover:border-blue-600 cursor-pointer hover:shadow-lg"
                 style={{ animationDelay: `${0.6 + index * 0.05}s` }}
               >
                 {tech}
