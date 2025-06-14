@@ -16,6 +16,7 @@ const MouseParticles = () => {
   const mouseRef = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number>();
   const isMouseMovingRef = useRef(false);
+  const lastMouseMoveRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -24,32 +25,52 @@ const MouseParticles = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Enable better performance
+    ctx.imageSmoothingEnabled = false;
+
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      ctx.scale(dpr, dpr);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current.x = e.clientX;
-      mouseRef.current.y = e.clientY;
-      isMouseMovingRef.current = true;
+    const createParticles = (x: number, y: number) => {
+      const now = Date.now();
+      // Throttle particle creation
+      if (now - lastMouseMoveRef.current < 16) return; // ~60fps
+      lastMouseMoveRef.current = now;
 
-      // Create new particles
-      for (let i = 0; i < 3; i++) {
+      // Create fewer particles for better performance
+      for (let i = 0; i < 2; i++) {
         particlesRef.current.push({
-          x: e.clientX + (Math.random() - 0.5) * 20,
-          y: e.clientY + (Math.random() - 0.5) * 20,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
+          x: x + (Math.random() - 0.5) * 15,
+          y: y + (Math.random() - 0.5) * 15,
+          vx: (Math.random() - 0.5) * 1.5,
+          vy: (Math.random() - 0.5) * 1.5,
           life: 0,
-          maxLife: 60 + Math.random() * 40
+          maxLife: 50 + Math.random() * 30
         });
       }
 
-      // Limit particle count for performance
-      if (particlesRef.current.length > 100) {
-        particlesRef.current = particlesRef.current.slice(-100);
+      // Limit particle count more aggressively
+      if (particlesRef.current.length > 80) {
+        particlesRef.current = particlesRef.current.slice(-80);
       }
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      mouseRef.current.x = x;
+      mouseRef.current.y = y;
+      isMouseMovingRef.current = true;
+
+      createParticles(x, y);
     };
 
     const handleMouseStop = () => {
@@ -61,40 +82,37 @@ const MouseParticles = () => {
     const handleMouseMoveWithTimeout = (e: MouseEvent) => {
       handleMouseMove(e);
       clearTimeout(mouseStopTimeout);
-      mouseStopTimeout = setTimeout(handleMouseStop, 100);
+      mouseStopTimeout = setTimeout(handleMouseStop, 150);
     };
 
     const animate = () => {
       if (!canvas || !ctx) return;
       
+      // Clear with better performance
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
+      // Update and draw particles with optimized rendering
       particlesRef.current = particlesRef.current.filter(particle => {
         particle.life++;
         particle.x += particle.vx;
         particle.y += particle.vy;
-        particle.vy += 0.005; // reduced gravity
+        particle.vy += 0.003; // Reduced gravity for smoother motion
 
         const alpha = Math.max(0, 1 - particle.life / particle.maxLife);
-        const size = Math.max(0.5, 2.5 * alpha);
+        const size = Math.max(0.5, 2 * alpha);
 
-        // Check if particle is within canvas bounds
-        if (alpha > 0 && particle.x >= -10 && particle.x <= canvas.width + 10 && 
-            particle.y >= -10 && particle.y <= canvas.height + 10) {
+        // More efficient bounds checking
+        if (alpha > 0.1 && particle.x >= -5 && particle.x <= window.innerWidth + 5 && 
+            particle.y >= -5 && particle.y <= window.innerHeight + 5) {
+          
+          // Simplified rendering for better performance
+          ctx.globalAlpha = alpha * 0.8;
+          ctx.fillStyle = '#6366f1'; // Static color instead of gradient
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
-          
-          // Create gradient for particles
-          const gradient = ctx.createRadialGradient(
-            particle.x, particle.y, 0,
-            particle.x, particle.y, size
-          );
-          gradient.addColorStop(0, `rgba(99, 102, 241, ${alpha * 0.6})`);
-          gradient.addColorStop(1, `rgba(99, 102, 241, 0)`);
-          
-          ctx.fillStyle = gradient;
           ctx.fill();
+          ctx.globalAlpha = 1;
+          
           return true;
         }
         return false;
@@ -104,13 +122,16 @@ const MouseParticles = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    window.addEventListener('mousemove', handleMouseMoveWithTimeout);
+    
+    // Use passive listeners for better performance
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+    document.addEventListener('mousemove', handleMouseMoveWithTimeout, { passive: true });
+    
     animate();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      window.removeEventListener('mousemove', handleMouseMoveWithTimeout);
+      document.removeEventListener('mousemove', handleMouseMoveWithTimeout);
       clearTimeout(mouseStopTimeout);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -122,7 +143,10 @@ const MouseParticles = () => {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-[1] w-full h-full"
-      style={{ background: 'transparent' }}
+      style={{ 
+        background: 'transparent',
+        willChange: 'transform'
+      }}
     />
   );
 };
