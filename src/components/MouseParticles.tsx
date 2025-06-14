@@ -36,27 +36,53 @@ const MouseParticles = () => {
       ctx.scale(dpr, dpr);
     };
 
+    const isInteractiveElement = (element: Element): boolean => {
+      const tagName = element.tagName.toLowerCase();
+      const isButton = tagName === 'button';
+      const isLink = tagName === 'a';
+      const isInput = ['input', 'textarea', 'select'].includes(tagName);
+      const hasClickHandler = element.getAttribute('role') === 'button' || 
+                              element.hasAttribute('onclick') ||
+                              element.classList.contains('cursor-pointer');
+      const isText = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'label'].includes(tagName);
+      
+      return isButton || isLink || isInput || hasClickHandler || isText;
+    };
+
     const createParticles = (x: number, y: number) => {
       const now = Date.now();
-      // Throttle particle creation
-      if (now - lastMouseMoveRef.current < 16) return; // ~60fps
+      // Throttle particle creation more aggressively
+      if (now - lastMouseMoveRef.current < 32) return; // ~30fps
       lastMouseMoveRef.current = now;
 
-      // Create fewer particles for better performance
-      for (let i = 0; i < 3; i++) {
+      // Check if mouse is over interactive elements
+      const elementUnderMouse = document.elementFromPoint(x, y);
+      if (elementUnderMouse) {
+        // Check the element and its parents
+        let current = elementUnderMouse;
+        while (current && current !== document.body) {
+          if (isInteractiveElement(current)) {
+            return; // Don't create particles over interactive elements
+          }
+          current = current.parentElement;
+        }
+      }
+
+      // Create fewer particles for more subtle effect
+      for (let i = 0; i < 1; i++) {
         particlesRef.current.push({
-          x: x + (Math.random() - 0.5) * 20,
-          y: y + (Math.random() - 0.5) * 20,
-          vx: (Math.random() - 0.5) * 2,
-          vy: (Math.random() - 0.5) * 2,
+          x: x + (Math.random() - 0.5) * 10,
+          y: y + (Math.random() - 0.5) * 10,
+          vx: (Math.random() - 0.5) * 1,
+          vy: (Math.random() - 0.5) * 1,
           life: 0,
-          maxLife: 60 + Math.random() * 40
+          maxLife: 40 + Math.random() * 20
         });
       }
 
-      // Limit particle count
-      if (particlesRef.current.length > 100) {
-        particlesRef.current = particlesRef.current.slice(-100);
+      // Limit particle count more aggressively
+      if (particlesRef.current.length > 50) {
+        particlesRef.current = particlesRef.current.slice(-50);
       }
     };
 
@@ -82,17 +108,17 @@ const MouseParticles = () => {
         particle.life++;
         particle.x += particle.vx;
         particle.y += particle.vy;
-        particle.vy += 0.05; // Gravity
+        particle.vy += 0.02; // Reduced gravity
 
         const alpha = Math.max(0, 1 - particle.life / particle.maxLife);
-        const size = Math.max(0.5, 3 * alpha);
+        const size = Math.max(0.5, 2 * alpha); // Smaller particles
 
         // Check if particle is still visible and within bounds
-        if (alpha > 0.05 && particle.x >= -10 && particle.x <= window.innerWidth + 10 && 
+        if (alpha > 0.1 && particle.x >= -10 && particle.x <= window.innerWidth + 10 && 
             particle.y >= -10 && particle.y <= window.innerHeight + 10) {
           
-          // Draw particle
-          ctx.globalAlpha = alpha * 0.9;
+          // Draw particle with much lower opacity
+          ctx.globalAlpha = alpha * 0.3; // Much more transparent
           ctx.fillStyle = '#6366f1';
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
