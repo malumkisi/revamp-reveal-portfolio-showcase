@@ -14,7 +14,7 @@ const FeaturedProject = () => {
             Öne Çıkan Proje
           </h2>
           <p className="text-xl text-muted-foreground">
-            Restoran Websitesi Tamamen Yeniden Tasarım ve Modernleştirme
+            Restoran Web Sitesi Tamamen Yeniden Tasarım ve Modernleştirme
           </p>
         </div>
 
@@ -64,35 +64,35 @@ const FeaturedProject = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-4">Kullanılan Teknolojiler:</h4>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="hover:scale-105 transition-transform">HTML5</Badge>
-                    <Badge variant="secondary" className="hover:scale-105 transition-transform">CSS3</Badge>
-                    <Badge variant="secondary" className="hover:scale-105 transition-transform">JavaScript</Badge>
-                    <Badge variant="secondary" className="hover:scale-105 transition-transform">Duyarlı Tasarım</Badge>
-                    <Badge variant="secondary" className="hover:scale-105 transition-transform">İletişim Formları</Badge>
+                    <Badge variant="secondary" className="hover:scale-105 transition-transform bg-secondary text-secondary-foreground">HTML5</Badge>
+                    <Badge variant="secondary" className="hover:scale-105 transition-transform bg-secondary text-secondary-foreground">CSS3</Badge>
+                    <Badge variant="secondary" className="hover:scale-105 transition-transform bg-secondary text-secondary-foreground">JavaScript</Badge>
+                    <Badge variant="secondary" className="hover:scale-105 transition-transform bg-secondary text-secondary-foreground">Duyarlı Tasarım</Badge>
+                    <Badge variant="secondary" className="hover:scale-105 transition-transform bg-secondary text-secondary-foreground">İletişim Formları</Badge>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <Card className="p-4 text-center bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800 hover:scale-105 transition-transform duration-300">
-                    <Clock className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                    <Clock className="w-8 h-8 text-green-600 dark:text-green-400 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-green-700 dark:text-green-400">%75</div>
                     <div className="text-sm text-green-600 dark:text-green-400">Daha Hızlı Yükleme</div>
                   </Card>
                   
                   <Card className="p-4 text-center bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800 hover:scale-105 transition-transform duration-300">
-                    <Users className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <Users className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-blue-700 dark:text-blue-400">%150</div>
                     <div className="text-sm text-blue-600 dark:text-blue-400">Daha Fazla Sorgu</div>
                   </Card>
                   
                   <Card className="p-4 text-center bg-purple-50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800 hover:scale-105 transition-transform duration-300">
-                    <TrendingUp className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                    <TrendingUp className="w-8 h-8 text-purple-600 dark:text-purple-400 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-purple-700 dark:text-purple-400">%200</div>
                     <div className="text-sm text-purple-600 dark:text-purple-400">Mobil Trafik</div>
                   </Card>
                   
                   <Card className="p-4 text-center bg-orange-50 dark:bg-orange-950/20 border-orange-200 dark:border-orange-800 hover:scale-105 transition-transform duration-300">
-                    <Zap className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+                    <Zap className="w-8 h-8 text-orange-600 dark:text-orange-400 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-orange-700 dark:text-orange-400">90+</div>
                     <div className="text-sm text-orange-600 dark:text-orange-400">Hız Skoru</div>
                   </Card>

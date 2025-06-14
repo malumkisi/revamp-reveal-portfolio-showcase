@@ -33,7 +33,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold text-primary hover:scale-105 transition-transform duration-200">
-            Dev<span className="text-blue-600">Portfolio</span>
+            Geliştirici<span className="text-blue-600">Portföy</span>
           </div>
 
           {/* Desktop Navigation */}
