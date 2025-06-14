@@ -7,9 +7,15 @@ const Services = () => {
   const services = [
     {
       icon: Globe,
-      title: "Özel İş Web Siteleri",
-      description: "Güçlü bir online varlığa ihtiyaç duyan küçük işletmeler ve hizmet sağlayıcıları için sıfırdan profesyonel web siteleri oluşturun.",
-      features: ["Sıfırdan özel tasarım", "İşe odaklı düzenler", "Profesyonel markalaşma", "İletişim ve hizmet sayfaları"]
+      title: "Yeni İş Web Siteleri",
+      description: "Sıfırdan güçlü bir online varlığa ihtiyaç duyan küçük işletmeler için profesyonel web siteleri oluşturun. Hızlı teslimat garantisiyle.",
+      features: ["Sıfırdan özel tasarım", "İşe odaklı düzenler", "Profesyonel markalaşma", "Maksimum 2 günde teslim"]
+    },
+    {
+      icon: Zap,
+      title: "Web Sitesi Yenileme",
+      description: "Mevcut web sitenizi modern, hızlı ve kullanıcı dostu bir deneyime dönüştürün. Eski tasarımları çağdaş çözümlerle yenileyin.",
+      features: ["Mevcut site analizi", "Modern tasarım güncellemesi", "Performans iyileştirme", "Hızlı yenileme süreci"]
     },
     {
       icon: Palette,
@@ -34,12 +40,6 @@ const Services = () => {
       title: "Backend Entegrasyonu",
       description: "İletişim formları, temel veri işleme ve temel iş özellikleri için güvenilir sunucu tarafı işlevsellik.",
       features: ["İletişim formu kurulumu", "E-posta entegrasyonu", "Veri işleme sistemleri", "İçerik yönetimi"]
-    },
-    {
-      icon: Zap,
-      title: "Performans & SEO Optimizasyonu",
-      description: "Optimize edilmiş kod, sıkıştırılmış görseller ve SEO dostu yapı ile web sitenizi arama motorlarında üst sıralara taşıyın.",
-      features: ["Sayfa hızı optimizasyonu", "SEO dostu yapı", "Görsel optimizasyonu", "Arama motoru uyumluluğu"]
     }
   ];
 
@@ -49,7 +49,7 @@ const Services = () => {
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Hizmetler</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Küçük işletmeler ve hizmet sağlayıcıları için kapsamlı web sitesi çözümleri
+            Küçük işletmeler için hızlı web sitesi oluşturma ve yenileme çözümleri
           </p>
         </div>
 

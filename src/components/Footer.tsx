@@ -13,7 +13,7 @@ const Footer = () => {
               Geliştirici<span className="text-blue-400">Portföy</span>
             </div>
             <p className="text-gray-300 dark:text-gray-400 text-sm leading-relaxed">
-              Eski web sitelerini küçük işletmeler ve hizmet sağlayıcıları için modern, profesyonel deneyimlere dönüştürüyoruz.
+              Küçük işletmeler için hızlı, profesyonel web sitesi oluşturma ve yenileme hizmetleri. Maksimum 2 günde teslim garantisi.
             </p>
           </div>
 
@@ -21,10 +21,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-white">Hizmetler</h4>
             <ul className="space-y-2 text-sm text-gray-300 dark:text-gray-400">
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Web Sitesi Yeniden Tasarım</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Özel Geliştirme</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">Yeni Web Sitesi Oluşturma</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">Web Sitesi Yenileme</a></li>
               <li><a href="#services" className="hover:text-blue-400 transition-colors">Mobil Optimizasyon</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Performans Optimizasyonu</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">Hızlı Teslimat</a></li>
             </ul>
           </div>
 
@@ -64,7 +64,7 @@ const Footer = () => {
             © 2024 GeliştiriciPortföy. Tüm hakları saklıdır.
           </div>
           <div className="text-sm text-gray-400 dark:text-gray-500 mt-4 md:mt-0">
-            Küçük işletmeler için web sitesi yeniden tasarımında uzmanız
+            Hızlı web sitesi oluşturma ve yenileme uzmanı
           </div>
         </div>
       </div>

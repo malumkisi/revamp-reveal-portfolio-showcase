@@ -8,38 +8,38 @@ const Process = () => {
     {
       icon: MessageSquare,
       title: "1. İlk Danışmanlık",
-      description: "İş hedeflerinizi, hedef kitlenizi ve mevcut web sitesi zorluklarınızı tartışacağız. Neyin işlediğini ve neyin iyileştirilmesi gerektiğini analiz edeceğim.",
-      duration: "1-2 saat"
+      description: "İş hedeflerinizi, hedef kitlenizi ve web sitesi ihtiyaçlarınızı tartışacağız. Yeni site mi, yoksa mevcut sitenizin yenilenmesi mi gerektiğini analiz edeceğim.",
+      duration: "30 dakika"
     },
     {
       icon: Search,
-      title: "2. Araştırma ve Analiz",
-      description: "İşinizin online öne çıkması için bir strateji oluşturmak üzere sektörünüzü, rakiplerinizi ve en iyi uygulamaları inceleyeceğim.",
-      duration: "2-3 gün"
+      title: "2. Hızlı Analiz",
+      description: "İşinizin online öne çıkması için bir strateji oluşturmak üzere sektörünüzü ve en iyi uygulamaları hızlıca inceleyeceğim.",
+      duration: "2-4 saat"
     },
     {
       icon: Palette,
       title: "3. Tasarım ve Planlama",
-      description: "Markanızla uyumlu ve ziyaretçileri müşteriye dönüştüren tel çerçeveler ve tasarım maketleri oluşturuyorum. Tam olarak ne inşa ettiğimizi göreceksiniz.",
-      duration: "3-5 gün"
+      description: "Markanızla uyumlu ve ziyaretçileri müşteriye dönüştüren tasarım planı oluşturuyorum. Yeni site veya yenileme için net bir görsel sunarım.",
+      duration: "4-8 saat"
     },
     {
       icon: Code,
-      title: "4. Geliştirme",
-      description: "Web sitenizi temiz, modern kodla oluşturuyorum. Duyarlı tasarım, hızlı yükleme süreleri ve ihtiyacınız olan tüm işlevsellik.",
-      duration: "1-2 hafta"
+      title: "4. Hızlı Geliştirme",
+      description: "Web sitenizi temiz, modern kodla hızlıca oluşturuyorum. Duyarlı tasarım, hızlı yükleme süreleri ve ihtiyacınız olan tüm işlevsellik.",
+      duration: "8-16 saat"
     },
     {
       icon: TestTube,
-      title: "5. Test ve İyileştirme",
-      description: "Tüm cihazlar ve tarayıcılarda kapsamlı test. Performans optimizasyonu ve geri bildirimlerinize dayalı son ayarlamalar.",
-      duration: "2-3 gün"
+      title: "5. Test ve Optimizasyon",
+      description: "Tüm cihazlar ve tarayıcılarda hızlı test. Performans optimizasyonu ve son ayarlamalar yapılır.",
+      duration: "2-4 saat"
     },
     {
       icon: Rocket,
-      title: "6. Yayınlama ve Destek",
-      description: "Yeni web sitenizle yayına geçiyoruz! Güncellemeler konusunda eğitim sağlayacağım ve her şeyin sorunsuz çalışmasını sağlamak için sürekli destek sunacağım.",
-      duration: "1 gün + sürekli"
+      title: "6. Hızlı Teslimat",
+      description: "Yeni web sitenizle yayına geçiyoruz! Güncellemeler konusunda eğitim sağlayacağım ve sürekli destek sunacağım.",
+      duration: "1 saat + sürekli"
     }
   ];
 
@@ -47,9 +47,9 @@ const Process = () => {
     <section className="py-20 bg-background dark:bg-background relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Sürecim</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Hızlı Sürecim</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Web sitenizi danışmanlıktan yayınlamaya kadar dönüştürmek için sistematik bir yaklaşım
+            Web sitenizi maksimum 2 gün içinde danışmanlıktan teslimata kadar dönüştürme süreci
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const Process = () => {
                       <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                         {step.description}
                       </p>
-                      <div className="inline-flex items-center px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs text-muted-foreground">
+                      <div className="inline-flex items-center px-2 py-1 bg-green-100 dark:bg-green-900/30 rounded-full text-xs text-green-700 dark:text-green-300">
                         <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                         {step.duration}
                       </div>
@@ -93,23 +93,23 @@ const Process = () => {
           <div className="mt-16 grid md:grid-cols-2 gap-8">
             <Card className="bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-300">İletişim</h3>
+                <h3 className="text-xl font-semibold mb-4 text-blue-900 dark:text-blue-300">Hızlı İletişim</h3>
                 <div className="space-y-3 text-blue-800 dark:text-blue-200">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full mr-3"></div>
-                    <span>E-posta ile düzenli ilerleme güncellemeleri</span>
+                    <span>Anlık ilerleme güncellemeleri</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full mr-3"></div>
-                    <span>Önemli dönüm noktaları için video görüşmeler</span>
+                    <span>Hızlı geri bildirim ve revizyonlar</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full mr-3"></div>
-                    <span>İşbirlikçi geri bildirim ve revizyonlar</span>
+                    <span>2-4 saat yanıt süresi garantisi</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full mr-3"></div>
-                    <span>24-48 saat yanıt süresi</span>
+                    <span>Telefon ve mesajla sürekli iletişim</span>
                   </div>
                 </div>
               </CardContent>
@@ -117,23 +117,23 @@ const Process = () => {
 
             <Card className="bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-900 dark:text-green-300">Zaman Çizelgesi Beklentileri</h3>
+                <h3 className="text-xl font-semibold mb-4 text-green-900 dark:text-green-300">Hızlı Teslimat Garantisi</h3>
                 <div className="space-y-3 text-green-800 dark:text-green-200">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-green-600 dark:bg-green-400 rounded-full mr-3"></div>
-                    <span><strong>Basit yeniden tasarım:</strong> 1-2 hafta</span>
+                    <span><strong>Basit projeler:</strong> 1 gün</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-green-600 dark:bg-green-400 rounded-full mr-3"></div>
-                    <span><strong>Yeni iş web sitesi:</strong> 2-3 hafta</span>
+                    <span><strong>Standart projeler:</strong> 2 gün</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-green-600 dark:bg-green-400 rounded-full mr-3"></div>
-                    <span><strong>Karmaşık proje:</strong> 3-4 hafta</span>
+                    <span><strong>Web sitesi yenileme:</strong> 1-2 gün</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-green-600 dark:bg-green-400 rounded-full mr-3"></div>
-                    <span><strong>Acil projeler:</strong> Premium ile mevcuttur</span>
+                    <span><strong>Karmaşık projeler:</strong> İhtiyaca göre</span>
                   </div>
                 </div>
               </CardContent>
