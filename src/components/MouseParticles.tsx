@@ -15,7 +15,6 @@ const MouseParticles = () => {
   const particlesRef = useRef<Particle[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number>();
-  const isMouseMovingRef = useRef(false);
   const lastMouseMoveRef = useRef(0);
 
   useEffect(() => {
@@ -44,70 +43,57 @@ const MouseParticles = () => {
       lastMouseMoveRef.current = now;
 
       // Create fewer particles for better performance
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 3; i++) {
         particlesRef.current.push({
-          x: x + (Math.random() - 0.5) * 15,
-          y: y + (Math.random() - 0.5) * 15,
-          vx: (Math.random() - 0.5) * 1.5,
-          vy: (Math.random() - 0.5) * 1.5,
+          x: x + (Math.random() - 0.5) * 20,
+          y: y + (Math.random() - 0.5) * 20,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
           life: 0,
-          maxLife: 50 + Math.random() * 30
+          maxLife: 60 + Math.random() * 40
         });
       }
 
-      // Limit particle count more aggressively
-      if (particlesRef.current.length > 80) {
-        particlesRef.current = particlesRef.current.slice(-80);
+      // Limit particle count
+      if (particlesRef.current.length > 100) {
+        particlesRef.current = particlesRef.current.slice(-100);
       }
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      // Get mouse position relative to the viewport
+      const x = e.clientX;
+      const y = e.clientY;
       
       mouseRef.current.x = x;
       mouseRef.current.y = y;
-      isMouseMovingRef.current = true;
 
       createParticles(x, y);
-    };
-
-    const handleMouseStop = () => {
-      isMouseMovingRef.current = false;
-    };
-
-    let mouseStopTimeout: NodeJS.Timeout;
-
-    const handleMouseMoveWithTimeout = (e: MouseEvent) => {
-      handleMouseMove(e);
-      clearTimeout(mouseStopTimeout);
-      mouseStopTimeout = setTimeout(handleMouseStop, 150);
     };
 
     const animate = () => {
       if (!canvas || !ctx) return;
       
-      // Clear with better performance
+      // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles with optimized rendering
+      // Update and draw particles
       particlesRef.current = particlesRef.current.filter(particle => {
         particle.life++;
         particle.x += particle.vx;
         particle.y += particle.vy;
-        particle.vy += 0.003; // Reduced gravity for smoother motion
+        particle.vy += 0.05; // Gravity
 
         const alpha = Math.max(0, 1 - particle.life / particle.maxLife);
-        const size = Math.max(0.5, 2 * alpha);
+        const size = Math.max(0.5, 3 * alpha);
 
-        // More efficient bounds checking
-        if (alpha > 0.1 && particle.x >= -5 && particle.x <= window.innerWidth + 5 && 
-            particle.y >= -5 && particle.y <= window.innerHeight + 5) {
+        // Check if particle is still visible and within bounds
+        if (alpha > 0.05 && particle.x >= -10 && particle.x <= window.innerWidth + 10 && 
+            particle.y >= -10 && particle.y <= window.innerHeight + 10) {
           
-          // Simplified rendering for better performance
-          ctx.globalAlpha = alpha * 0.8;
-          ctx.fillStyle = '#6366f1'; // Static color instead of gradient
+          // Draw particle
+          ctx.globalAlpha = alpha * 0.9;
+          ctx.fillStyle = '#6366f1';
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
           ctx.fill();
@@ -123,16 +109,15 @@ const MouseParticles = () => {
 
     resizeCanvas();
     
-    // Use passive listeners for better performance
+    // Use document for global mouse tracking
     window.addEventListener('resize', resizeCanvas, { passive: true });
-    document.addEventListener('mousemove', handleMouseMoveWithTimeout, { passive: true });
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
     
     animate();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      document.removeEventListener('mousemove', handleMouseMoveWithTimeout);
-      clearTimeout(mouseStopTimeout);
+      document.removeEventListener('mousemove', handleMouseMove);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -142,9 +127,10 @@ const MouseParticles = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[1] w-full h-full"
+      className="fixed inset-0 pointer-events-none w-full h-full"
       style={{ 
         background: 'transparent',
+        zIndex: 9999,
         willChange: 'transform'
       }}
     />
