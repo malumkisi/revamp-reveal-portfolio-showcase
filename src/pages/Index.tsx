@@ -17,7 +17,7 @@ const Index = () => {
   useEffect(() => {
     // Site dilini Türkçe olarak ayarla
     document.documentElement.lang = 'tr';
-    document.title = 'GeliştiriciPortföy - Web Sitesi Yeniden Tasarım Uzmanı';
+    document.title = 'DemirWebWorks - Web Sitesi Geliştirme Uzmanı';
   }, []);
 
   return (

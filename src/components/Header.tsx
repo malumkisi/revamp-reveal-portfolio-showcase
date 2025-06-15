@@ -58,7 +58,7 @@ const Header = () => {
             onClick={scrollToTop}
             className="text-2xl font-bold text-primary hover:scale-105 transition-transform duration-200 cursor-pointer"
           >
-            Geliştirici<span className="text-blue-600">Portföy</span>
+            Demir<span className="text-blue-600">WebWorks</span>
           </button>
 
           {/* Desktop Navigation */}

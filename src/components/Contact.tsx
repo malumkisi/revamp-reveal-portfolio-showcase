@@ -75,7 +75,7 @@ const Contact = () => {
                     <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     <div>
                       <div className="font-medium text-foreground">E-posta</div>
-                      <div className="text-sm text-muted-foreground">merhaba@gelistiriciportfoy.com</div>
+                      <div className="text-sm text-muted-foreground">merhaba@demirwebworks.com</div>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
